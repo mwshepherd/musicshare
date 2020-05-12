@@ -13,13 +13,13 @@ RSpec.describe Listing, type: :model do
       expect(subject).to_not be_valid
     end
 
-    it 'is valid with a title up than 30 characters' do
-      subject.title = 'a' * 30
+    it 'is valid with a title up to 100 characters' do
+      subject.title = 'a' * 100
       expect(subject).to be_valid
     end
 
-    it 'is not valid with a title greater than 30 characters' do
-      subject.title = 'a' * 31
+    it 'is not valid with a title greater than 100 characters' do
+      subject.title = 'a' * 101
       expect(subject).to_not be_valid
     end
 
