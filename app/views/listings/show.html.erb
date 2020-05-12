@@ -1,1 +1,13 @@
 <h1><%= @listing.title %></h1>
+<div class="listing-user">
+    <%= link_to @listing.user.username do %>
+        <%= link_to @listing.user.username, "/#{@listing.user.username}" %></div>
+    <% end %>
+<div class="listing-price">$<%= @listing.price %></div>
+<div class="listing-image"><%= image_tag @listing.picture if @listing.picture.attached? %></div>
+<div class="listing-description"><%= @listing.description %></div>
+
+<% if can? :edit, @listing %>
+    <%= link_to 'Edit', edit_listing_path %>
+    <%= link_to 'Delete', listing_path, method: :delete %>
+<% end %>

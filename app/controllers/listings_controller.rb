@@ -1,6 +1,7 @@
 class ListingsController < ApplicationController
     before_action :set_listing, only: [:show, :edit, :update, :destroy]
     before_action :authenticate_user!, only: [:create, :new, :edit, :update, :destroy]
+    load_and_authorize_resource
 
     def index
         @listings = Listing.all
@@ -25,17 +26,28 @@ class ListingsController < ApplicationController
     end
 
     def edit
+        if !current_user
+            redirect_to root_path
+        end
     end
 
     def update
+        if @listing.update(listing_params)
+            redirect_to @listing
+        else
+            render :edit
+        end
     end
     
     def destroy
+        @listing.destroy
+
+        redirect_to root_path
     end
 
     private
     def listing_params
-        params.require(:listing).permit(:title, :price, :description)
+        params.require(:listing).permit(:title, :price, :description, :picture)
     end
 
     def set_listing

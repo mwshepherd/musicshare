@@ -7,4 +7,5 @@ class User < ApplicationRecord
   validates :fullname, presence: true, length: { in: 1...71 }
   validates :bio, allow_nil: true, length: { in: 1...251 }
   has_many :listings, dependent: :destroy
+  has_one_attached :picture
 end

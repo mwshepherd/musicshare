@@ -1,5 +1,5 @@
 <h1>Index page</h1>
 
-<% @listings.each do |listing| %>
+<% @listings.reverse_each do |listing| %>
     <%= render 'shared/listing-card', listing: listing %>
 <% end %>
