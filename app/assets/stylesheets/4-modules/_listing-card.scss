@@ -1,6 +1,22 @@
 .listing-card {
+  display: flex;
   border: 1px solid rgb(226, 225, 225);
   border-radius: 5px;
   padding: 20px;
   margin: 10px 0;
+
+  &__picture {
+    margin-right: 10px;
+
+    img {
+      border-radius: 5px;
+      width: 250px;
+      height: 200px;
+      object-fit: cover;
+    }
+  }
+
+  &__title {
+    font-weight: bold;
+  }
 }

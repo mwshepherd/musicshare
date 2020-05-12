@@ -1,22 +1,27 @@
 <div class="listing-card">
-    <div class="listing-card__title">
-    <%= link_to listing do %>
-        <%= listing.title %>
-    <% end %>
-    </div>
-    <div class="listing-card__price">
-        $<%= listing.price %>
-    </div>
     <div class="listing-card__picture">
-        <%= image_tag listing.picture, style: 'width: 200px' if listing.picture.attached? %>
-    </div>
-    <div class="listing-card__description">
-        <%= listing.description %>
-    </div>
-    <div class="listing-card__user">
-        Posted by: 
-        <%= link_to listing.user.username do %>
-            <%= listing.user.username %>
+        <%= link_to listing do %>
+            <%= image_tag listing.picture if listing.picture.attached? %>
         <% end %>
+    </div>
+    <div class="listing-card__details">
+        <div class="listing-card__title">
+        <%= link_to listing do %>
+            <%= listing.title %>
+        <% end %>
+        </div>
+        <div class="listing-card__price">
+            $<%= listing.price %>
+        </div>
+        
+        <div class="listing-card__description">
+            <%= listing.description %>
+        </div>
+        <div class="listing-card__user">
+            Posted by: 
+            <%= link_to listing.user.username do %>
+                <%= listing.user.username %>
+            <% end %>
+        </div>
     </div>
 </div>
