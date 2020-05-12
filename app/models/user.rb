@@ -6,4 +6,5 @@ class User < ApplicationRecord
   validates :username, presence: true, length: { in: 1...16 }
   validates :fullname, presence: true, length: { in: 1...71 }
   validates :bio, allow_nil: true, length: { in: 1...251 }
+  has_many :listings, dependent: :destroy
 end
