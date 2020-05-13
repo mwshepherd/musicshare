@@ -1,0 +1,14 @@
+.user {
+  display: flex;
+  padding: 20px;
+  border: 1px solid #eee;
+  border-radius: 5px;
+
+  &__profile-picture {
+    margin-right: 20px;
+  }
+
+  &__profile-picture-img {
+    max-width: 150px;
+  }
+}

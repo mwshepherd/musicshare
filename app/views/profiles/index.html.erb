@@ -1,1 +1,19 @@
-<h1><%= @user.username %></h1>
+<div class="user">
+    <div class="user__profile-picture">
+        <% if @user.picture.attached? %>
+            <%= image_tag @user.picture, class: "user__profile-picture-img" %>
+        <% else %>
+            <%= image_tag('default-profile-picture.png', class: "user__profile-picture-img") %>
+        <% end %>
+    </div>
+    <div class="user__details">
+        <h1><%= @user.fullname %></h1>
+        <h3><%= @user.username %></h3>
+    </div>
+</div>
+
+<div class="user__listings">
+    <% @user.listings.reverse_each do |listing| %>
+        <%= render 'shared/listing-card', listing: listing %>
+    <% end %>
+</div>
