@@ -4,7 +4,7 @@
         <%= link_to @listing.user.username, "/#{@listing.user.username}" %></div>
     <% end %>
 <div class="listing-price">$<%= @listing.price %></div>
-<div class="listing-image"><%= image_tag @listing.picture[0] if @listing.picture.attached? %></div>
+<div class="listing-image"><%= image_tag @listing.picture[0].service_url if @listing.picture.attached? %></div>
 <div class="listing-description"><%= @listing.description %></div>
 
 <% if can? :edit, @listing %>
