@@ -21,12 +21,13 @@
                         <li class="nav-main__link-item">
                             <%= link_to 'Post an item',  new_listing_path %>
                         </li>
-                        <li class="nav-main__link-item">
-                            <%= link_to current_user.fullname, current_user.username %>
+                        <li class="nav-main__link-item dropdown">
+                            <%= link_to current_user.fullname, "/#{current_user.username}", class: 'nav-main__user-dropdown' %>
+                            <div class="nav-main__user-dropdown-menu">
+                                <%= link_to 'Settings', edit_user_registration_path, class: 'nav-main__nav-link' %>   
+                                <%= link_to 'Log out', destroy_user_session_path, method: :delete, class: 'nav-main__nav-link' %>   
+                            </div>
                         </li>                 
-                        <li class="nav-main__link-item">
-                            <%= link_to 'Log out', destroy_user_session_path, method: :delete, class: 'nav-main__nav-link' %>
-                        </li>
                     <% end %>
                 </ul>
             </div>
