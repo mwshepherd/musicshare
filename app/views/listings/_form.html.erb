@@ -8,7 +8,12 @@
         <%= form.label :price %><br>
         <%= form.number_field :price %>
     </div>
-
+<!-- 
+    <div>
+        <%= form.label :category %><br>
+        <%= form.collection_select(:categories, Category.all, :id, :name) %>
+    </div>
+-->
      <div>
         <%= form.label :description %><br>
         <%= form.text_field :description %>

@@ -9,10 +9,19 @@
     <div class="user__details">
         <h1><%= @user.fullname %></h1>
         <h3><%= @user.username %></h3>
+        <div class="user__details-email">
+            <%= @user.email %>
+        </div>
+        <div class="user__bio">
+            <%= @user.bio %>
+        </div>
     </div>
 </div>
 
+
+
 <div class="user__listings">
+<h3>Listings by <%= @user.fullname %>:</h3>
     <% @user.listings.reverse_each do |listing| %>
         <%= render 'shared/listing-card', listing: listing %>
     <% end %>
