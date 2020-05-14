@@ -19,6 +19,11 @@
   </div>
 
   <div class="field">
+    <%= f.label :bio %><br />
+    <%= f.text_area :bio, autofocus: true, autocomplete: "bio" %>
+  </div>
+
+  <div class="field">
     <%= f.label :picture %> 
     <%= f.file_field :picture, accept: 'image/png,image/gif,image/jpeg,image/jpg' %>
   </div>

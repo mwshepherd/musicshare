@@ -8,4 +8,11 @@ class User < ApplicationRecord
   validates :bio, allow_nil: true, length: { in: 1...251 }
   has_many :listings, dependent: :destroy
   has_one_attached :picture
+  has_one :cart
+  after_create :create_cart
+
+  private
+    def create_cart
+      Cart.create(user: self)
+    end
 end

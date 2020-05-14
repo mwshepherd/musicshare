@@ -1,0 +1,13 @@
+<div class="search-bar">
+    <%= form_with(url: "/search", method: "get") do |form| %>
+        <div class="search-bar__categories">
+            <%= form.collection_select(:category, Category.all, :id, :name) %>
+        </div>
+        <div class="search-bar__search">
+            <%= form.text_field :title, placeholder: 'What are you looking for?' %>
+        </div>
+        <div class="search-bar__submit">
+            <%= form.submit 'Submit' %>
+        </div>
+    <% end %>
+</div>

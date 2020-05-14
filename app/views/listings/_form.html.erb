@@ -1,4 +1,17 @@
 <%= form_with model: @listing, local: true do |form| %>
+    <% if @listing.errors.any? %>
+        <div id="error_explanation">
+            <h2>
+            <%= pluralize(@listing.errors.count, "error") %> prohibited
+            this article from being saved:
+            </h2>
+            <ul>
+            <% @listing.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+            <% end %>
+            </ul>
+        </div>
+    <% end %>
     <div>
         <%= form.label :title %><br>
         <%= form.text_field :title %>
@@ -8,12 +21,12 @@
         <%= form.label :price %><br>
         <%= form.number_field :price %>
     </div>
-<!-- 
+
     <div>
         <%= form.label :category %><br>
-        <%= form.collection_select(:categories, Category.all, :id, :name) %>
+        <%= form.collection_select(:category, Category.all, :id, :name) %>
     </div>
--->
+
      <div>
         <%= form.label :description %><br>
         <%= form.text_field :description %>

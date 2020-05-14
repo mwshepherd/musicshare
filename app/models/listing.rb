@@ -6,4 +6,6 @@ class Listing < ApplicationRecord
   has_many_attached :picture
   has_many :listing_categories
   has_many :categories, through: :listing_categories
+  has_many :cart_listings
+  has_many :carts, through: :cart_listings
 end

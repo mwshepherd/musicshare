@@ -1,13 +1,24 @@
-<h1><%= @listing.title %></h1>
-<div class="listing-user">
-    <%= link_to @listing.user.username do %>
-        <%= link_to @listing.user.username, "/#{@listing.user.username}" %></div>
-    <% end %>
-<div class="listing-price">$<%= @listing.price %></div>
-<div class="listing-image"><%= image_tag @listing.picture[0].service_url if @listing.picture.attached? %></div>
-<div class="listing-description"><%= @listing.description %></div>
+<div class="listing">
+    <div class="listing__photos">
+        <%= image_tag @listing.picture[0].service_url, class: 'listing__image' if @listing.picture.attached? %>
+    </div>
+    <div class="listing__details">
+        <h1><%= @listing.title %></h1>
+        <div class="listing__user">
+            <%= link_to @listing.user.username do %>
+                <%= link_to @listing.user.username, "/#{@listing.user.username}" %></div>
+            <% end %>
+        <div class="listing__price">$<%= @listing.price %></div>
+        
+        <div class="listing__description"><%= @listing.description %></div>
 
-<% if can? :edit, @listing %>
-    <%= link_to 'Edit', edit_listing_path %>
-    <%= link_to 'Delete', listing_path, method: :delete %>
-<% end %>
+        <% if can? :edit, @listing %>
+            <%= link_to 'Edit', edit_listing_path %>
+            <%= link_to 'Delete', listing_path, method: :delete %>
+        <% end %>
+
+        <div class="listing__rent-item">
+            <%= link_to 'Rent', @listing, class: 'listing__rent-item-btn' %>
+        </div>
+    </div>
+</div>
