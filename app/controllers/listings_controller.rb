@@ -14,6 +14,12 @@ class ListingsController < ApplicationController
     def create
         @listing = Listing.new(listing_params)
         @listing.user = current_user
+        @listing.listing_categories.build(category_id: params[:listing][:category])
+
+
+        # p @listing.errors.full_messages
+
+
 
         if @listing.save
             redirect_to @listing
