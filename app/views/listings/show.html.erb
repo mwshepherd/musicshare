@@ -16,5 +16,9 @@
             <%= link_to 'Edit', edit_listing_path %>
             <%= link_to 'Delete', listing_path, method: :delete %>
         <% end %>
+
+        <div class="listing__rent-item">
+            <%= link_to 'Rent', @listing, class: 'listing__rent-item-btn' %>
+        </div>
     </div>
 </div>
