@@ -6,5 +6,48 @@
   form {
     display: flex;
     justify-content: space-between;
+
+    & > * {
+      display: flex;
+    }
+
+    div > * {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+      font-size: 15px;
+    }
+  }
+
+  &__categories {
+    select {
+      border: 1px solid #eee;
+      border-radius: 5px;
+      background-color: transparent;
+    }
+  }
+
+  &__search {
+    width: 100%;
+    margin: 0 20px;
+    input {
+      width: 100%;
+      border: 1px solid #eee;
+      border-radius: 5px;
+      padding: 10px;
+    }
+  }
+
+  &__submit {
+    input {
+      border: 1px solid #eee;
+      border-radius: 5px;
+      padding: 10px;
+      cursor: pointer;
+      transition: all 0.3s;
+
+      &:hover {
+        background-color: cornflowerblue;
+        color: #fff;
+      }
+    }
   }
 }

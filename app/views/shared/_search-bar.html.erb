@@ -4,7 +4,7 @@
             <%= form.collection_select(:category, Category.all, :id, :name) %>
         </div>
         <div class="search-bar__search">
-            <%= form.text_field :title %>
+            <%= form.text_field :title, placeholder: 'What are you looking for?' %>
         </div>
         <div class="search-bar__submit">
             <%= form.submit 'Submit' %>

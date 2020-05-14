@@ -1,4 +1,4 @@
-<h1>Index page</h1>
+<%= render 'shared/search-bar' %>
 
 <% @listings.reverse_each do |listing| %>
     <%= render 'shared/listing-card', listing: listing %>
