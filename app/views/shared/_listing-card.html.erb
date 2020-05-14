@@ -1,6 +1,8 @@
 <div class="listing-card">
     <div class="listing-card__picture">
-        <%= image_tag listing.picture[0].service_url, class: 'listing-card__picture-img' if listing.picture.attached? %>
+        <%= link_to listing do %>
+            <%= image_tag listing.picture[0].service_url, class: 'listing-card__picture-img' if listing.picture.attached? %>
+        <% end %>
     </div>
     <div class="listing-card__details">
         <div class="listing-card__title">

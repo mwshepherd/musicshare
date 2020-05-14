@@ -1,11 +1,17 @@
 .search-bar {
+  background: var(--color-white);
   padding: 20px;
-  border: 1px solid #eee;
+  border: 1px solid var(--border-color);
   border-radius: 5px;
 
   form {
     display: flex;
     justify-content: space-between;
+
+    & > * > input,
+    select {
+      background-color: transparent;
+    }
 
     & > * {
       display: flex;
@@ -19,9 +25,8 @@
 
   &__categories {
     select {
-      border: 1px solid #eee;
+      border: 1px solid var(--border-color);
       border-radius: 5px;
-      background-color: transparent;
     }
   }
 
@@ -30,7 +35,7 @@
     margin: 0 20px;
     input {
       width: 100%;
-      border: 1px solid #eee;
+      border: 1px solid var(--border-color);
       border-radius: 5px;
       padding: 10px;
     }
@@ -38,7 +43,7 @@
 
   &__submit {
     input {
-      border: 1px solid #eee;
+      border: 1px solid var(--border-color);
       border-radius: 5px;
       padding: 10px;
       cursor: pointer;
