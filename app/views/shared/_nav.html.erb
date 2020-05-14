@@ -7,7 +7,7 @@
             <div class="nav-main__left">
                 <ul class="nav-main__links">
                     <li class="nav-main__link-item">
-                        <%= link_to 'Categories', root_path, class: 'nav-main__nav-link' %>
+                        <%= link_to 'Browse', '/browse', class: 'nav-main__nav-link' %>
                     </li>
                     <% if !user_signed_in? %>
                         <li class="nav-main__link-item">
@@ -19,7 +19,7 @@
                     <% end %>
                     <% if user_signed_in? %>
                         <li class="nav-main__link-item">
-                            <%= link_to 'Post an item',  new_listing_path %>
+                            <%= link_to 'Post an item', new_listing_path, class: 'nav-main__btn' %>
                         </li>
                         <li class="nav-main__link-item dropdown">
                             <%= link_to current_user.fullname, "/#{current_user.username}", class: 'nav-main__user-dropdown' %>

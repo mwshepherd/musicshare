@@ -1,0 +1,16 @@
+.listing {
+  display: flex;
+  padding: 20px;
+  border: 1px solid #eee;
+  border-radius: 5px;
+
+  &__photos {
+    margin-right: 20px;
+  }
+
+  &__image {
+    max-width: 300px;
+    border: 1px solid #eee;
+    border-radius: 5px;
+  }
+}
