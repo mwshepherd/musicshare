@@ -62,3 +62,5 @@ gem "cancancan", "~> 3.1"
 gem "aws-sdk-s3", "~> 1.64"
 
 gem "table_print", "~> 1.5"
+
+gem "font-awesome-rails", "~> 4.7"

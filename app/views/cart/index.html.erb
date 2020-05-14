@@ -1,3 +1,10 @@
-<% @cart_items.each do |item| %>
-    <p><%= item.listing.title %></p>
+<h1>Cart</h1>
+
+<% @cart_items.reverse_each do |item| %>
+    <%= render 'shared/listing-card', listing: item.listing %>
+    <p><%= item.id %></p>
+    <%= link_to 'Remove', cart_path(item.id), method: :delete %>
 <% end %>
+
+
+<h2>$<%= @total %></h2>

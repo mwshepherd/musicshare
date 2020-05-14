@@ -18,7 +18,7 @@
         <% end %>
 
         <div class="listing__rent-item">
-            <%= link_to 'Rent', @listing, class: 'listing__rent-item-btn' %>
+            <%= link_to 'Add to cart', cart_index_path(id: @listing.id), method: :post, class: 'listing__rent-item-btn' %>
         </div>
     </div>
 </div>
