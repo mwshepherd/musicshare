@@ -5,15 +5,7 @@ class CartController < ApplicationController
     end
 
     def create
-        # @listing = 
-        puts '*' * 30
-        puts params
-        puts params[:id]
-        puts '*' * 30
         @listing = Listing.find(params[:id])
-        puts '*' * 30
-        p @listing
-        puts '*' * 30
         CartListing.create(cart: current_user.cart, listing: @listing)
         redirect_to cart_index_path
     end
