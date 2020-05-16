@@ -4,9 +4,14 @@
     <div class="browse__categories">
         <h3>Categories</h3>
         <ul class="browse__categories-list">
+            <li class="browse__category">
+                <%= link_to 'All', browse_path %>
+            </li>
             <% @categories.each do |category| %>
                 <li class="browse__category">
-                    <%= category.name %>
+                    <%= link_to browse_path(category: category.id)  do %>
+                        <%= category.name %>
+                    <% end %>
                 </li>
             <% end %>
         </ul>

@@ -9,6 +9,10 @@ class ListingsController < ApplicationController
 
     def browse
         @categories = Category.all
+        @category = params[:category]
+        if @category.present?
+            @listings = Category.find(@category).listings
+        end
     end
 
     def new
