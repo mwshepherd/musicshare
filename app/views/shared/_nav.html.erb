@@ -31,7 +31,7 @@
                         
                         <% if  current_user.cart && !current_user.cart.cart_listings.empty? %>
                             <li class="nav-main__link-item">
-                                <%= link_to '/cart' do %>
+                                <%= link_to "/cart" do %>
                                     <i class="fas fa-shopping-cart"></i>
                                     <%= current_user.cart.cart_listings.length %>
                                 <% end %>

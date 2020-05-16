@@ -5,5 +5,8 @@ Rails.application.routes.draw do
   resources :cart, only: [:index, :create, :destroy]
   get '/browse', to: "listings#browse"
   get '/:username', to: "profiles#index"
+  get '/payments/session', to: "payments#get_stripe_id"
+  get '/payments/success', to: "payments#success"
+  post '/payments/webhook', to: "payments#webhook"
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

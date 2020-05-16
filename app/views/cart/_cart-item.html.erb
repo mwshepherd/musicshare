@@ -1,0 +1,32 @@
+<div class="cart-item">
+    <div class="cart-item__picture">
+        <%= link_to listing do %>
+            <%= image_tag listing.picture[0].service_url, class: 'cart-item__picture-img' if listing.picture.attached? %>
+        <% end %>
+    </div>
+    <div class="cart-item__details">
+        <div class="listing-card__title">
+        <%= link_to listing do %>
+            <%= listing.title %>
+        <% end %>
+        </div>
+        <div class="listing-card__price">
+            $<%= listing.price %>
+        </div>
+        
+        <div class="listing-card__description">
+            <%= listing.description %>
+        </div>
+        <div class="listing-card__user">
+            Posted by: 
+            <%= link_to listing.user.username do %>
+                <%= listing.user.username %>
+            <% end %>
+        </div>
+    </div>
+    <div class="cart-item__remove">
+        <%= link_to cart_path(item.id), method: :delete do %>
+            <i class="fas fa-times"></i>
+        <% end %>
+    </div>
+</div>

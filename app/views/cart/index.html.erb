@@ -1,10 +1,19 @@
 <h1>Cart</h1>
+<div class="cart">
+    <div class="cart__items">
+        <% @cart_items.reverse_each do |item| %>
+            <%= render 'cart-item', listing: item.listing, item: item %>
+        <% end %>
+    </div>
 
-<% @cart_items.reverse_each do |item| %>
-    <%= render 'shared/listing-card', listing: item.listing %>
-    <p><%= item.id %></p>
-    <%= link_to 'Remove', cart_path(item.id), method: :delete %>
-<% end %>
+    <div class="cart__details">
+        <div class="cart__details-container">
+            <h2>Total: $<%= @total %></h2>
+
+            <%= link_to "Pay Deposit", "", id: "stripe" %>
+        </div>        
+    </div>
+</div>
 
 
-<h2>$<%= @total %></h2>
+<%= javascript_pack_tag "stripe" %>
