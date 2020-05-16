@@ -46,7 +46,6 @@ class ListingsController < ApplicationController
     
     def destroy
         @listing.destroy
-
         redirect_to root_path
     end
 

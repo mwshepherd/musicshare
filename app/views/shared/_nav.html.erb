@@ -27,7 +27,16 @@
                                 <%= link_to 'Settings', edit_user_registration_path, class: 'nav-main__nav-link' %>   
                                 <%= link_to 'Log out', destroy_user_session_path, method: :delete, class: 'nav-main__nav-link' %>   
                             </div>
-                        </li>                 
+                        </li>     
+                        
+                        <% if  current_user.cart && !current_user.cart.cart_listings.empty? %>
+                            <li class="nav-main__link-item">
+                                <%= link_to "/cart" do %>
+                                    <i class="fas fa-shopping-cart"></i>
+                                    <%= current_user.cart.cart_listings.length %>
+                                <% end %>
+                            </li>
+                        <% end %>            
                     <% end %>
                 </ul>
             </div>
