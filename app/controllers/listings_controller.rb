@@ -15,6 +15,9 @@ class ListingsController < ApplicationController
         end
     end
 
+    def search
+    end
+
     def new
         @listing = Listing.new
     end
