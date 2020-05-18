@@ -19,10 +19,15 @@
 
     <div class="browse__listings">
         <% if @listings.empty? %>
-            No search results for: <%= @title %> in <%= Category.find(@category).name %>
+            No search results for: <%= @title %> in 
+            <% if @category.empty? %>
+                all categories
+            <% else %>
+                <%= Category.find(@category).name %>
+            <% end %>
         <% else %>
             <% @listings.reverse_each do |listing| %>
-                <%= render 'shared/listing-card', listing: listing %>
+                <%= render 'shared/listing-card', listing: listing, category: @category, title: @title %>
             <% end %>
         <% end %>
     </div>

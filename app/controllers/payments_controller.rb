@@ -1,7 +1,10 @@
 class PaymentsController < ApplicationController
+  skip_before_action :verify_authenticity_token, only: [:webhook]
+
+
     def get_stripe_id
         # @listing = Listing.find(params[:id])
-        @line_items = current_user.cart.listings.map { |listing|
+        line_items = current_user.cart.listings.map do |listing|
             {
                 name: listing.title,
                 description: listing.description,
@@ -9,12 +12,12 @@ class PaymentsController < ApplicationController
                 currency: 'aud',
                 quantity: 1,
             }
-        }
+        end
         session_id = Stripe::Checkout::Session.create(
           payment_method_types: ['card'],
           customer_email: current_user.email,
           #Line items needs to be the array of items in the cart
-          line_items: @line_items,
+          line_items: line_items,
           payment_intent_data: {
             metadata: {
               user_id: current_user.id,
@@ -28,23 +31,34 @@ class PaymentsController < ApplicationController
     end
 
     def webhook
-      puts
-      puts '*' * 30
-      p params
-      puts '*' * 30
-      puts
-
       payment_id= params[:data][:object][:payment_intent]
       payment = Stripe::PaymentIntent.retrieve(payment_id)
-      listing_id = payment.metadata.listing_id
+      cart_id = payment.metadata.cart_id
       user_id = payment.metadata.user_id
+
+      cart = Cart.find(cart_id)
+      cart.completed = true
+
+      if cart.completed == true
+        order = Order.create(user_id: user_id)
+        #push all the items into an order table
+        cart.cart_listings.each do |listing|
+          OrderListing.create(order_id: order.id, listing_id: listing.listing_id)
+          p listing
+        end
+        cart.cart_listings.destroy_all
+      end
 
       p "listing id " + listing_id
       p "user id " + user_id
+
+      #implement logic to indicate a listing has been leased
+      #empty customers cart and push items into 'orders'
 
       head 200
     end
 
     def success
+      @order = current_user.orders.last
     end
 end

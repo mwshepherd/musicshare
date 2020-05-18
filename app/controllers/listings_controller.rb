@@ -18,10 +18,10 @@ class ListingsController < ApplicationController
     def search
         @categories = Category.all
         @category = params[:category]
-        @title = params[:title].downcase
+        @title = params[:title]
 
         if !@category.empty?
-            @listings = Category.find(@category).listings.where("lower(title) LIKE :search", search: "%#{@title}%")
+            @listings = Category.find(@category).listings.where("lower(title) LIKE :search", search: "%#{@title.downcase}%")
         else
             @listings = Listing.where("lower(title) LIKE :search", search: "%#{@title}%")
         end

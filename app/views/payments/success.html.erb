@@ -1,1 +1,5 @@
 <h1>Success payment page</h1>
+
+<% @order.listings.each do |listing| %>
+    <h3><%= listing.title %></h3>
+<% end %>

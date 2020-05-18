@@ -9,6 +9,7 @@ class User < ApplicationRecord
   has_many :listings, dependent: :destroy
   has_one_attached :picture
   has_one :cart
+  has_many :orders
   after_create :create_cart
 
   private
