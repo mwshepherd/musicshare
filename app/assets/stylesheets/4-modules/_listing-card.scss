@@ -15,4 +15,24 @@
     object-fit: cover;
     border-radius: 5px;
   }
+
+  &__title {
+    font-size: 25px;
+  }
+
+  &__description {
+    margin-top: 20px;
+    font-size: 14px;
+  }
+
+  &__price {
+    width: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+
+    .price {
+      font-weight: bold;
+    }
+  }
 }

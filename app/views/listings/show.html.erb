@@ -46,8 +46,8 @@
 
         <% if can? :edit, @listing %>
             <div class="listing-user__controls">
-                <%= link_to 'Edit', edit_listing_path %>
-                <%= link_to 'Delete', listing_path, method: :delete %>
+                <%= link_to 'Edit', edit_listing_path, class: 'edit' %>
+                <%= link_to 'Delete', listing_path, method: :delete, class: 'delete' %>
             </div>
         <% end %>
         
