@@ -1,22 +1,38 @@
 <%= render 'shared/search-bar' %>
 
 <div class="browse">
-    <div class="browse__categories">
-        <h3>Categories</h3>
-        <ul class="browse__categories-list">
-            <li class="browse__category">
-                <%= link_to 'All', browse_path %>
-            </li>
-            <% @categories.each do |category| %>
-                <li class="browse__category">
-                    <%= link_to browse_path(category: category.id)  do %>
-                        <%= category.name %>
+    <div class="browse__categories-container">
+        <div class="browse__categories">
+            <h3>Categories</h3>
+            <ul class="browse__categories-list">
+                <% if @category == nil %>
+                    <li class="browse__category active">
+                        <%= link_to 'All', browse_path %>
+                    </li>
+                <% else %>
+                    <li class="browse__category">
+                        <%= link_to 'All', browse_path %>
+                    </li>
+                <% end %>
+                
+                <% @categories.each do |category| %>
+                    <% if @category.to_i == category.id %>
+                        <li class="browse__category active">
+                            <%= link_to browse_path(category: category.id)  do %>
+                                <%= category.name %>
+                            <% end %>
+                        </li>
+                    <% else %>
+                        <li class="browse__category">
+                            <%= link_to browse_path(category: category.id)  do %>
+                                <%= category.name %>
+                            <% end %>
+                        </li>
                     <% end %>
-                </li>
-            <% end %>
-        </ul>
+                <% end %>
+            </ul>
+        </div>
     </div>
-
     <div class="browse__listings">
         <% @listings.reverse_each do |listing| %>
             <%= render 'shared/listing-card', listing: listing %>

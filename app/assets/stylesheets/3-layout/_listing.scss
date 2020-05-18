@@ -1,16 +1,71 @@
-.listing {
+.listing-container {
   display: flex;
+  margin: 20px 0;
+}
+
+.listing {
+  width: 100%;
   padding: 20px;
   border: 1px solid var(--border-color);
   border-radius: 5px;
 
+  &__details {
+    margin-bottom: 10px;
+  }
+
   &__photos {
-    margin-right: 20px;
+    margin-bottom: 20px;
   }
 
   &__image {
-    max-width: 300px;
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+    // border: 1px solid var(--border-color);
+    // border-radius: 5px;
+  }
+
+  &__description {
+    margin-bottom: 20px;
+  }
+}
+
+.listing-user {
+  width: 30%;
+  max-width: 400px;
+  margin-left: 20px;
+
+  & > * {
+    margin-bottom: 20px;
+  }
+
+  &__details {
+    display: flex;
+    align-items: center;
+    padding: 20px;
     border: 1px solid var(--border-color);
     border-radius: 5px;
+  }
+
+  &__profile-picture-img {
+    border-radius: 50%;
+    max-width: 50px;
+    margin-right: 20px;
+  }
+
+  &__controls {
+    padding: 20px;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+  }
+
+  &__rent-item {
+    & > * {
+      display: flex;
+      justify-content: center;
+      background: #e67676;
+      border-radius: 5px;
+      padding: 20px;
+    }
   }
 }
