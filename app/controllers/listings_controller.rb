@@ -16,6 +16,15 @@ class ListingsController < ApplicationController
     end
 
     def search
+        @categories = Category.all
+        @category = params[:category]
+        @title = params[:title].downcase
+
+        if !@category.empty?
+            @listings = Category.find(@category).listings.where("lower(title) LIKE :search", search: "%#{@title}%")
+        else
+            @listings = Listing.where("lower(title) LIKE :search", search: "%#{@title}%")
+        end
     end
 
     def new
@@ -44,6 +53,7 @@ class ListingsController < ApplicationController
     end
 
     def update
+        @listing.listing_categories.build(category_id: params[:listing][:category])
         if @listing.update(listing_params)
             redirect_to @listing
         else
