@@ -23,7 +23,13 @@
         <% end %>
 
         <div class="listing__rent-item">
+        <% if @listing.unavailable == true %>
+          Currently unavailable
+        <%elsif @listing.user_id != current_user.id %>
             <%= link_to 'Add to cart', cart_index_path(id: @listing.id), method: :post, class: 'listing__rent-item-btn' %>
+        <% else %>
+            Posted by you
+        <% end %>
         </div>
     </div>
 </div>

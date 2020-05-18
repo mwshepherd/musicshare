@@ -16,12 +16,11 @@ class PaymentsController < ApplicationController
         session_id = Stripe::Checkout::Session.create(
           payment_method_types: ['card'],
           customer_email: current_user.email,
-          #Line items needs to be the array of items in the cart
           line_items: line_items,
           payment_intent_data: {
             metadata: {
               user_id: current_user.id,
-              cart_id: current_user.cart.id #this needs to change
+              cart_id: current_user.cart.id
             }
           },
           success_url: "#{root_url}payments/success?userId=#{current_user.id}&cartId=#{current_user.cart.id}",
@@ -43,8 +42,9 @@ class PaymentsController < ApplicationController
         order = Order.create(user_id: user_id)
         #push all the items into an order table
         cart.cart_listings.each do |listing|
+          listing.listing.unavailable = true
+          listing.listing.save
           OrderListing.create(order_id: order.id, listing_id: listing.listing_id)
-          p listing
         end
         cart.cart_listings.destroy_all
       end
@@ -60,5 +60,16 @@ class PaymentsController < ApplicationController
 
     def success
       @order = current_user.orders.last
+      @total = order_total
     end
+
+    private
+
+    def order_total
+      sum = 0
+      @order.listings.each do |listing|
+          sum += listing.price
+      end
+      return sum
+  end
 end

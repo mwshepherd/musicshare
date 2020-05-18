@@ -4,15 +4,15 @@
     <h2>Featured Categories</h2>
 
     <div class="homepage__featured">
-        <div class="homepage__featured-category synths">
+        <%= link_to '/browse?category=1', class: "homepage__featured-category synths" do %>
             <h3>Synthesizers</h3>
-        </div>
-        <div class="homepage__featured-category studio">
+        <% end %>
+        <%= link_to '/browse?category=2', class: "homepage__featured-category studio" do %>
             <h3>Studio Equipment</h3>
-        </div>
-        <div class="homepage__featured-category guitars">
+        <% end %>
+        <%= link_to '/browse?category=3', class: "homepage__featured-category guitars" do %>
             <h3>Guitars</h3>
-        </div>
+        <% end %>
         <div class="homepage__featured-category percussion">
             <h3>Percussion</h3>
         </div>
