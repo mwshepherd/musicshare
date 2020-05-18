@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   get '/browse', to: "listings#browse"
   get '/search', to: "listings#search"
   get '/:username', to: "profiles#index"
+  get '/:username/orders', to: "profiles#orders"
   get '/payments/session', to: "payments#get_stripe_id"
   get '/payments/success', to: "payments#success"
   post '/payments/webhook', to: "payments#webhook"
