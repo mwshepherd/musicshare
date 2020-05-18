@@ -1,0 +1,10 @@
+<h1>Your listings page</h1>
+
+<% @listings.reverse_each do |listing| %>
+    <div class="listing">
+        <h3><%= listing.title %></h3>
+        <% if listing.unavailable %>
+            <h4>Unavailable</h4>
+        <% end %>
+    </div>
+<% end %>

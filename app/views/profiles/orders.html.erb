@@ -1,0 +1,14 @@
+<h1>Order history</h1>
+
+<% @orders.reverse_each do |order| %>
+    <div class="orders">
+        <h1>Order #<%= order.id %></h1>
+        <% order.listings.each do |listing| %>
+            <div class="success-listing">
+                <h2><%= listing.title %></h2>
+                <p><%= listing.description %></p>
+                <h2><%= number_to_currency(listing.price / 100.0) %></h2>
+            </div>
+        <% end %>
+    </div>
+<% end %>

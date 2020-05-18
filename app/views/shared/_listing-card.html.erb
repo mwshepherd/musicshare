@@ -10,18 +10,19 @@
             <%= listing.title %>
         <% end %>
         </div>
-        <div class="listing-card__price">
-            $<%= listing.price %>
-        </div>
-        
-        <div class="listing-card__description">
-            <%= listing.description %>
-        </div>
         <div class="listing-card__user">
             Posted by: 
             <%= link_to listing.user.username do %>
                 <%= listing.user.username %>
             <% end %>
         </div>
+
+        <div class="listing-card__description">
+            <%= listing.description[0...280] %>... <%= link_to 'Read more', listing %>
+        </div>
+        
+    </div>
+    <div class="listing-card__price">
+       <span class="price"><%= number_to_currency(listing.price / 100) %></span> /day
     </div>
 </div>

@@ -8,7 +8,7 @@
 
     <div class="cart__details">
         <div class="cart__details-container">
-            <h2>Total: $<%= @total %></h2>
+            <h2>Total: <%= number_to_currency(@total / 100) %></h2>
 
             <%= link_to "Pay Deposit", "", id: "stripe" %>
         </div>        

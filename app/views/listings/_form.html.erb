@@ -19,17 +19,19 @@
 
     <div>
         <%= form.label :price %><br>
-        <%= form.number_field :price %>
+        <% @listing.price ? value = @listing.price / 100 : value = nil %>
+        <%= form.number_field :price, { value: value, step: 1 } %>
+        
     </div>
 
     <div>
         <%= form.label :category %><br>
-        <%= form.collection_select(:category, Category.all, :id, :name) %>
+        <%= form.collection_check_boxes(:categories, Category.all, :id, :name, { checked: @listing.categories.map(&:to_param), include_hidden: false }) %>
     </div>
 
      <div>
         <%= form.label :description %><br>
-        <%= form.text_field :description %>
+        <%= form.text_area :description %>
     </div>
 
     <div>

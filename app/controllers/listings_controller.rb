@@ -33,8 +33,13 @@ class ListingsController < ApplicationController
 
     def create
         @listing = Listing.new(listing_params)
+        @listing.price *= 100
         @listing.user = current_user
-        @listing.listing_categories.build(category_id: params[:listing][:category])
+        category_ids = params[:listing][:categories]
+
+        category_ids.each do |category_id|
+            @listing.listing_categories.build(category_id: category_id)
+        end
 
         if @listing.save
             redirect_to @listing
@@ -53,8 +58,32 @@ class ListingsController < ApplicationController
     end
 
     def update
-        @listing.listing_categories.build(category_id: params[:listing][:category])
+        params[:listing][:categories] ? category_ids = params[:listing][:categories].map { |id| id.to_i } : category_ids = []
+        all_categories = Category.all.map { |category| category.id }
+        void_categories =  all_categories - category_ids
+
+        if category_ids != []
+            category_ids.each do |category_id|
+                if @listing.listing_categories.where(category_id: category_id).empty?
+                    @listing.listing_categories.create(category_id: category_id)
+                end
+            end
+        end
+        
+        if void_categories != []
+            void_categories.each do |category_id|
+                if @listing.listing_categories.where(category_id: category_id)
+                    @listing.listing_categories.where(category_id: category_id).each do |listing_category|
+                        listing_category.destroy
+                    end
+                end
+            end
+        end
+        
+        
         if @listing.update(listing_params)
+            @listing.price *= 100
+            @listing.save
             redirect_to @listing
         else
             render :edit

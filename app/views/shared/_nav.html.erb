@@ -24,6 +24,8 @@
                         <li class="nav-main__link-item dropdown">
                             <%= link_to current_user.fullname, "/#{current_user.username}", class: 'nav-main__user-dropdown' %>
                             <div class="nav-main__user-dropdown-menu">
+                                <%= link_to 'Listings', "/#{current_user.username}/listings", class: 'nav-main__nav-link' %>   
+                                <%= link_to 'Orders', "/#{current_user.username}/orders", class: 'nav-main__nav-link' %>   
                                 <%= link_to 'Settings', edit_user_registration_path, class: 'nav-main__nav-link' %>   
                                 <%= link_to 'Log out', destroy_user_session_path, method: :delete, class: 'nav-main__nav-link' %>   
                             </div>
