@@ -10,6 +10,11 @@
             <% end %>
         <div class="listing__price">$<%= @listing.price %></div>
         
+        <div class="listing__description">
+            <% @listing.categories.each do |category| %>
+                <%= category.name %>,
+            <% end %>
+        </div>
         <div class="listing__description"><%= @listing.description %></div>
 
         <% if can? :edit, @listing %>

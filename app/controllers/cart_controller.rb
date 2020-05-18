@@ -6,6 +6,9 @@ class CartController < ApplicationController
     end
 
     def create
+        if !current_user.cart
+            Cart.create(user: current_user)
+        end
         @listing = Listing.find(params[:id])
         CartListing.create(cart: current_user.cart, listing: @listing)
         redirect_to cart_index_path
@@ -20,9 +23,6 @@ class CartController < ApplicationController
     private
 
     def load_cart
-        if !current_user.cart
-            current_user.cart.create
-        end
         current_user.cart.cart_listings
     end
 

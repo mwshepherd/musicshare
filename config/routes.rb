@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :listings, only: [:index, :new, :create, :show, :edit, :update, :destroy]
   resources :cart, only: [:index, :create, :destroy]
   get '/browse', to: "listings#browse"
+  get '/search', to: "listings#search"
   get '/:username', to: "profiles#index"
   get '/payments/session', to: "payments#get_stripe_id"
   get '/payments/success', to: "payments#success"

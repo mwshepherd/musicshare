@@ -8,7 +8,7 @@ class Ability
     if user.is_admin?
       can :manage, :all
     else
-      can [:index, :browse, :show, :new, :create], Listing
+      can [:index, :browse, :search, :show, :new, :create], Listing
       can [:edit, :update, :destroy], Listing, user_id: user.id
     end
   end
