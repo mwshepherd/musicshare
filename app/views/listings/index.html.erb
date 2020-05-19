@@ -3,18 +3,18 @@
 <div class="homepage">
     <h2>Featured Categories</h2>
     <div class="homepage__featured">
-        <%= link_to '/browse?category=1', class: "homepage__featured-category synths" do %>
+        <%= link_to '/browse?category=10', class: "homepage__featured-category synths" do %>
             <h3>Synthesizers</h3>
         <% end %>
-        <%= link_to '/browse?category=2', class: "homepage__featured-category studio" do %>
+        <%= link_to '/browse?category=9', class: "homepage__featured-category studio" do %>
             <h3>Studio Equipment</h3>
         <% end %>
-        <%= link_to '/browse?category=3', class: "homepage__featured-category guitars" do %>
+        <%= link_to '/browse?category=4', class: "homepage__featured-category guitars" do %>
             <h3>Guitars</h3>
         <% end %>
-        <div class="homepage__featured-category percussion">
+        <%= link_to '/browse?category=3', class: "homepage__featured-category percussion" do %>
             <h3>Percussion</h3>
-        </div>
+        <% end %>
     </div>
 
     <div class="homepage__about">
