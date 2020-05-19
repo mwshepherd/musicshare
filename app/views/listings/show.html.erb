@@ -47,8 +47,10 @@
         <div class="listing-user__rent-item">
             <% if @listing.unavailable == true %>
                <div class="unavailable">Currently unavailable</div>
-            <%elsif @listing.user_id != current_user.id %>
+            <%elsif current_user && @listing.user_id != current_user.id %>
                 <%= link_to 'Add to cart', cart_index_path(id: @listing.id), method: :post, class: 'listing__rent-item-btn' %>
+            <% elsif !current_user %>
+                <div class="posted-by-self">Sign in to buy</div>
             <% else %>
                 <div class="posted-by-self">Posted by you</div>
             <% end %>
