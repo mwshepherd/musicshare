@@ -2,7 +2,6 @@
 
 <div class="homepage">
     <h2>Featured Categories</h2>
-
     <div class="homepage__featured">
         <%= link_to '/browse?category=1', class: "homepage__featured-category synths" do %>
             <h3>Synthesizers</h3>
@@ -15,6 +14,24 @@
         <% end %>
         <div class="homepage__featured-category percussion">
             <h3>Percussion</h3>
+        </div>
+    </div>
+
+    <div class="homepage__about">
+        
+        <div class="homepage__description">
+            <h1>What is Music Share?</h1>
+            <p>Music Share is an online musical equipment sharing market place. Think Airbnb/Uber meets music gear. This platform allows musicians in need, opportunities to rent quality equipment from musicians who have the gear. Often musicians have two problems, either not having enough gear, or too much of it. Music Share aims to bridge this gap to benefit both kinds of musicians, whilst reducing the need for over consumption in an already saturated market.</p>
+
+            <p>Need a rare vintage syth for your next recording, or an amp to use for an upcoming gig? There could be someone in your area that has exactly what you need who'll rent it to you at an affordable rate.</p>
+
+            <div class="homepage__browse">
+                <%= link_to 'Browse listings', '/browse', class: 'homepage__browse-btn' %>
+            </div>
+            
+        </div>
+        <div class="homepage__feature-img">
+            <%= image_tag 'https://producerhive.com/wp-content/uploads/2019/01/canva-photo-editor-86.jpg' %>
         </div>
     </div>
 </div>

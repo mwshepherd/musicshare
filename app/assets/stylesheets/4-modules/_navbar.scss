@@ -48,13 +48,16 @@
     padding: 10px;
     border: 1px solid rgba(0, 0, 0, 0.2);
     border-radius: 5px;
+    display: inline-block;
+    text-align: center;
+    min-width: 120px;
   }
 
   &__user-dropdown-menu {
     display: none;
     position: absolute;
     left: 0;
-    top: 27px;
+    top: 40px;
     background-color: #ffff;
     min-width: 100%;
     padding: 10px;
@@ -74,5 +77,21 @@
         background-color: #eee;
       }
     }
+  }
+
+  &__cart {
+    display: flex;
+  }
+
+  &__cart-amount {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background-color: #fa8e8e;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 10px;
+    color: #fff;
   }
 }
