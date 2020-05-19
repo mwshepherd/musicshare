@@ -16,7 +16,7 @@
         <div class="listing__description">
             <h3>Description</h3>
             <div class="listing__description-body">
-                <%= @listing.description %>
+                <%= simple_format(@listing.description) %>
             </div>        
         </div>
 
@@ -42,15 +42,7 @@
             <%= link_to @listing.user.username do %>
                 <%= link_to @listing.user.username, "/#{@listing.user.username}" %>
             <% end %>
-        </div>
-
-        <% if can? :edit, @listing %>
-            <div class="listing-user__controls">
-                <%= link_to 'Edit', edit_listing_path, class: 'edit' %>
-                <%= link_to 'Delete', listing_path, method: :delete, class: 'delete' %>
-            </div>
-        <% end %>
-        
+        </div>      
 
         <div class="listing-user__rent-item">
             <% if @listing.unavailable == true %>
@@ -61,6 +53,13 @@
                 <div class="posted-by-self">Posted by you</div>
             <% end %>
         </div>
+
+        <% if can? :edit, @listing %>
+            <div class="listing-user__controls">
+                <%= link_to 'Edit', edit_listing_path, class: 'edit' %>
+                <%= link_to 'Delete', listing_path, method: :delete, data: {confirm: "Are you sure?"}, class: 'delete' %>
+            </div>
+        <% end %>
     </div>
 
 </div>

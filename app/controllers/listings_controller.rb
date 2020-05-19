@@ -37,8 +37,10 @@ class ListingsController < ApplicationController
         @listing.user = current_user
         category_ids = params[:listing][:categories]
 
-        category_ids.each do |category_id|
-            @listing.listing_categories.build(category_id: category_id)
+        if category_ids != nil
+            category_ids.each do |category_id|
+                @listing.listing_categories.build(category_id: category_id)
+            end
         end
 
         if @listing.save
@@ -91,8 +93,9 @@ class ListingsController < ApplicationController
     end
     
     def destroy
+        @listing.listing_categories.destroy_all
         @listing.destroy
-        redirect_to root_path
+        redirect_to browse_path
     end
 
     private

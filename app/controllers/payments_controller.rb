@@ -71,5 +71,5 @@ class PaymentsController < ApplicationController
           sum += listing.price
       end
       return sum
-  end
+    end
 end

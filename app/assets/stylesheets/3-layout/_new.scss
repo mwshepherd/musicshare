@@ -1,0 +1,65 @@
+.post-listing__container {
+  width: 50%;
+  margin: 0 auto;
+  background: #fff;
+  padding: 20px;
+  border-radius: 5px;
+
+  form {
+    & > * {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .form-group {
+      margin: 20px 0;
+
+      label {
+        font-weight: bold;
+        margin-bottom: 10px;
+      }
+
+      input,
+      textarea {
+        padding: 10px;
+        font-size: 15px;
+        font-family: inherit;
+        border: 1px solid var(--border-color);
+        border-radius: 5px;
+
+        &:focus {
+          outline: none;
+        }
+      }
+
+      textarea {
+        height: 200px;
+      }
+
+      input[type='submit'] {
+        cursor: pointer;
+        background: var(--color-black);
+        color: #fff;
+        border: none;
+        font-size: 20px;
+        font-weight: bold;
+        text-transform: uppercase;
+
+        &:hover {
+          background: #75eac5;
+        }
+      }
+
+      &__categories-container {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      &__categories {
+        label {
+          font-weight: 100;
+        }
+      }
+    }
+  }
+}

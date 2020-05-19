@@ -12,7 +12,7 @@
   &__categories {
     width: 100%;
     padding: 20px;
-    border: 1px solid var(--border-color);
+    background: #fff;
     border-radius: 5px;
 
     &-list {
@@ -26,7 +26,7 @@
 
   .active {
     a {
-      color: rgb(196, 104, 104);
+      color: #fa8e8e;
     }
   }
 }
