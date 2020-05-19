@@ -1,0 +1,37 @@
+<div class="listing-card">
+    <div class="listing-card__picture">
+        <%= link_to listing do %>
+            <%= image_tag listing.picture[0].service_url, class: 'listing-card__picture-img' if listing.picture.attached? %>
+        <% end %>
+    </div>
+    <div class="listing-card__details">
+        <div class="listing-card__title">
+        <%= link_to listing do %>
+            <%= listing.title %>
+        <% end %>
+        </div>
+        <div class="listing-card__user">
+            Posted by: 
+            <%= link_to listing.user.username do %>
+                <%= listing.user.username %>
+            <% end %>
+        </div>
+
+        <div class="listing-card__description">
+            <%= listing.description[0...280] %>... <%= link_to 'Read more', listing %>
+        </div>
+        
+    </div>
+    <div class="current">
+        <div class="listing-user__controls current-listings">
+            <%= link_to 'Edit', edit_listing_path(listing.id), class: 'edit' %>
+            <%= link_to 'Delete', listing_path(listing.id), method: :delete, data: {confirm: "Are you sure?"}, class: 'delete' %>
+        </div>
+        <div class="listing-card__price current-listings-price">       
+        <span class="price"><%= number_to_currency(listing.price / 100) %></span>/day
+        </div>
+    </div>
+    
+
+    
+</div>
