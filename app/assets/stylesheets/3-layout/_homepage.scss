@@ -5,12 +5,13 @@
     background: #fff;
     padding: 20px;
     border-radius: 5px;
+    height: calc(100vh - 220px);
   }
   &__featured {
     display: flex;
     justify-content: space-between;
     margin: 20px 0;
-    height: 50vh;
+    height: calc(100% - 45px);
 
     &-category {
       display: flex;

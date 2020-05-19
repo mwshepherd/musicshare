@@ -91,6 +91,7 @@ class ListingsController < ApplicationController
     end
     
     def destroy
+        @listing.listing_categories.destroy_all
         @listing.destroy
         redirect_to root_path
     end
