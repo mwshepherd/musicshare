@@ -1,0 +1,72 @@
+.edit-user-container {
+  background: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  width: 500px;
+  margin: 0 auto;
+
+  .edit_user {
+    margin: 20px 0;
+
+    .field {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 10px;
+
+      label {
+        font-weight: bold;
+      }
+
+      input,
+      textarea {
+        border: 1px solid var(--border-color);
+        padding: 10px;
+        font-size: 14px;
+        border-radius: 5px;
+
+        &:focus {
+          outline: none;
+        }
+      }
+
+      textarea {
+        height: 200px;
+      }
+
+      input[type='submit'] {
+        cursor: pointer;
+        background: var(--color-black);
+        color: #fff;
+        border: none;
+        font-size: 20px;
+        font-weight: bold;
+        text-transform: uppercase;
+
+        &:hover {
+          background: #75eac5;
+        }
+      }
+    }
+  }
+
+  .delete-account {
+    margin-bottom: 20px;
+
+    form > input[type='submit'] {
+      cursor: pointer;
+      background: var(--color-black);
+      color: #fff;
+      border: none;
+      font-size: 20px;
+      font-weight: bold;
+      text-transform: uppercase;
+      width: 100%;
+      padding: 10px;
+      border-radius: 5px;
+
+      &:hover {
+        background: #fa9594;
+      }
+    }
+  }
+}

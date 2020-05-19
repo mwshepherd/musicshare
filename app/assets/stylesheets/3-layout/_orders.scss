@@ -3,4 +3,23 @@
   border-radius: 5px;
   margin: 20px 0;
   padding: 20px;
+
+  &__listing {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    // border: 1px solid var(--border-color);
+    border-radius: 5px;
+    margin: 20px auto;
+    padding: 20px;
+  }
+
+  &__description {
+    grid-column: 1 / 8;
+  }
+
+  &__price {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 }

@@ -10,4 +10,5 @@ class ProfilesController < ApplicationController
     def orders
         @orders = current_user.orders
     end
+
 end

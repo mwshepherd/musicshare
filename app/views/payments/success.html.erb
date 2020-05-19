@@ -1,21 +1,21 @@
-<div class="order">
+<div class="payment-success">
     <h1>Payment successful</h1>
     <h2>Order #<%= @order.id %></h2>
     <div class="success-listing">
     <% @order.listings.each do |listing| %>
         <div class="success-listing__description">
             <h3><%= listing.title %></h3>
-            <p><%= listing.description %></p>
+            <p><%= listing.description[0...280] %>...</p>
         </div>
         <div class="success-listing__price">
-            <h3>$<%= listing.price %></h3>
+            <h3><%= number_to_currency(listing.price / 100) %></h3>
         </div>
     <% end %>
         <div class="success-listing__total">
             <h3>Total</h3>
         </div>
         <div class="success-listing__total-value">
-            <h3>$<%= @total %></h3>
+            <h3><%= number_to_currency(@total / 100) %></h3>
         </div>
     </div>  
     <div class="view-orders">

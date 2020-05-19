@@ -4,11 +4,24 @@
     <div class="orders">
         <h1>Order #<%= order.id %></h1>
         <% order.listings.each do |listing| %>
-            <div class="success-listing">
-                <h2><%= listing.title %></h2>
-                <p><%= listing.description %></p>
-                <h2><%= number_to_currency(listing.price / 100.0) %></h2>
+            <div class="orders__listing">
+                <div class="orders__description">
+                    <h2><%= listing.title %></h2>
+                    <p><%= listing.description[0...280] %>...</p>
+                </div>
+
+                <div class="orders__price">
+                    <h2><%= number_to_currency(listing.price / 100.0) %></h2>
+                </div>
             </div>
         <% end %>
+        <div class="orders__listing">
+            <div class="orders__description"></div>
+            <div class="orders__price">
+                <% sum = 0 %>
+                <% order.listings.each { |listing| sum += listing.price } %>
+                <h2><%= number_to_currency(sum / 100) %></h2>
+            </div>
+        </div>
     </div>
 <% end %>
