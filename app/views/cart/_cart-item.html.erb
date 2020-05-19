@@ -10,13 +10,11 @@
             <%= listing.title %>
         <% end %>
         </div>
-        <div class="listing-card__price">
+        <div class="cart-item__price">
             <%= number_to_currency(listing.price / 100) %>
         </div>
         
-        <div class="listing-card__description">
-            <%= listing.description[0...280] %>...
-        </div>
+       
         <div class="listing-card__user">
             Posted by: 
             <%= link_to listing.user.username do %>
