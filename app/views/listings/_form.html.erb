@@ -12,34 +12,40 @@
             </ul>
         </div>
     <% end %>
-    <div>
-        <%= form.label :title %><br>
+    <div class="form-group">
+        <%= form.label :title %>
         <%= form.text_field :title %>
     </div>
 
-    <div>
-        <%= form.label :price %><br>
+    <div class="form-group">
+        <%= form.label :price %>
         <% @listing.price ? value = @listing.price / 100 : value = nil %>
         <%= form.number_field :price, { value: value, step: 1 } %>
-        
     </div>
 
-    <div>
-        <%= form.label :category %><br>
-        <%= form.collection_check_boxes(:categories, Category.all, :id, :name, { checked: @listing.categories.map(&:to_param), include_hidden: false }) %>
+    <div class="form-group">
+        <%= form.label :categories %>
+        <div class="form-group__categories-container">
+            <%= form.collection_check_boxes(:categories, Category.all, :id, :name, { checked: @listing.categories.map(&:to_param), include_hidden: false }) do |b| %>
+                <div class="form-group__categories">
+                    <%= b.check_box %>
+                    <%= b.label %>
+                </div>
+            <% end %>
+        </div>        
     </div>
 
-     <div>
-        <%= form.label :description %><br>
+     <div class="form-group">
+        <%= form.label :description %>
         <%= form.text_area :description %>
     </div>
 
-    <div>
+    <div class="form-group">
         <%= form.label :picture %> 
         <%= form.file_field :picture, accept: 'image/png,image/gif,image/jpeg,image/jpg' %>
     </div>
 
-    <div>
+    <div class="form-group">
         <%= form.submit 'Submit' %>
     </div>
 <% end %>
