@@ -6,7 +6,8 @@
 .listing {
   width: 100%;
   padding: 20px;
-  border: 1px solid var(--border-color);
+  // border: 1px solid var(--border-color);
+  background: #fff;
   border-radius: 5px;
 
   &__details {
@@ -43,7 +44,8 @@
     display: flex;
     align-items: center;
     padding: 20px;
-    border: 1px solid var(--border-color);
+    // border: 1px solid var(--border-color);
+    background: #fff;
     border-radius: 5px;
   }
 
