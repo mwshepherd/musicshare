@@ -35,11 +35,27 @@ class PaymentsController < ApplicationController
       cart_id = payment.metadata.cart_id
       user_id = payment.metadata.user_id
 
-      cart = Cart.find(cart_id)
+      p "listing id " + listing_id
+      p "user id " + user_id
+
+      head 200
+    end
+
+    def success
+      create_order
+      @order = current_user.orders.last
+      @total = order_total
+    end
+
+
+    private
+
+    def create_order
+      cart = Cart.find(current_user.cart.id)
       cart.completed = true
 
       if cart.completed == true
-        order = Order.create(user_id: user_id)
+        order = Order.create(user_id: current_user.id)
         #push all the items into an order table
         cart.cart_listings.each do |listing|
           listing.listing.unavailable = true
@@ -48,22 +64,7 @@ class PaymentsController < ApplicationController
         end
         cart.cart_listings.destroy_all
       end
-
-      p "listing id " + listing_id
-      p "user id " + user_id
-
-      #implement logic to indicate a listing has been leased
-      #empty customers cart and push items into 'orders'
-
-      head 200
     end
-
-    def success
-      @order = current_user.orders.last
-      @total = order_total
-    end
-
-    private
 
     def order_total
       sum = 0
