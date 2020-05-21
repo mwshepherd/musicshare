@@ -42,6 +42,7 @@ class PaymentsController < ApplicationController
     end
 
     def success
+      # Calls the create_order helper method
       create_order
       @order = current_user.orders.last
       @total = order_total
@@ -51,22 +52,26 @@ class PaymentsController < ApplicationController
     private
 
     def create_order
+      # Finds the current cart and sets the completed to be true
       cart = Cart.find(current_user.cart.id)
       cart.completed = true
 
       if cart.completed == true
+        # Creates a new order once the cart is complete
         order = Order.create(user_id: current_user.id)
-        #push all the items into an order table
+        # Takes the items from the cart and into the order table
         cart.cart_listings.each do |listing|
           listing.listing.unavailable = true
           listing.listing.save
           OrderListing.create(order_id: order.id, listing_id: listing.listing_id)
         end
+        # Removes all items in the cart
         cart.cart_listings.destroy_all
       end
     end
 
     def order_total
+      # Determins the total value of all listings purchased
       sum = 0
       @order.listings.each do |listing|
           sum += listing.price
