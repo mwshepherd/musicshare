@@ -29,6 +29,11 @@
             <% end %>
         </div>
 
+        <div class="listing__location">
+        <%= @listing.location.address %>
+        <div style="height: 500px" id="map"></div>
+        <%= javascript_pack_tag "leaflet/show" %>
+        </div>
         
     </div>
 

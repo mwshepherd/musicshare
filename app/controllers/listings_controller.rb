@@ -60,6 +60,10 @@ class ListingsController < ApplicationController
     end
 
     def show
+        @location = Location.where(listing_id: params[:id])
+        if params[:type] == "json"
+            render json: {data: [@location.latitude, @location.longitude]}
+        end
     end
 
     def edit
