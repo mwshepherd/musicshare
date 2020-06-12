@@ -10,4 +10,5 @@ class Listing < ApplicationRecord
   has_many :carts, through: :cart_listings
   has_many :order_listings
   has_many :orders, through: :order_listings
+  has_one :location
 end

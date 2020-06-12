@@ -66,3 +66,5 @@ gem "table_print", "~> 1.5"
 gem "font-awesome-rails", "~> 4.7"
 
 gem "stripe", "~> 5.22"
+
+gem "geocoder", "~> 1.6"
