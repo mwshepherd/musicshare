@@ -10,6 +10,8 @@ class User < ApplicationRecord
   has_one_attached :picture
   has_one :cart
   has_many :orders
+  has_many :user_ratings
+  has_many :ratings, through: :user_ratings
   after_create :create_cart
 
   private
