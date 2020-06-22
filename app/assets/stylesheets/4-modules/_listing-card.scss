@@ -6,19 +6,41 @@
   padding: 20px;
   margin-bottom: 20px;
 
+  @include breakpoint(xs) {
+    flex-direction: column;
+  }
+
   &__picture {
     margin-right: 20px;
+
+    @include breakpoint(xs) {
+      margin: 0;
+    }
   }
 
   &__picture-img {
-    width: 200px;
+    max-width: 200px;
     height: 150px;
     object-fit: cover;
     border-radius: 5px;
+
+    @include breakpoint(xs) {
+      max-width: 100%;
+    }
   }
 
   &__title {
     font-size: 25px;
+
+    @include breakpoint(xs) {
+      font-size: 20px;
+    }
+  }
+
+  &__user {
+    @include breakpoint(xs) {
+      font-size: 12px;
+    }
   }
 
   &__description {
@@ -31,6 +53,12 @@
     display: flex;
     justify-content: center;
     align-items: flex-end;
+
+    @include breakpoint(xs) {
+      margin-top: 10px;
+      width: 100%;
+      justify-content: flex-end;
+    }
 
     .price {
       font-weight: bold;
