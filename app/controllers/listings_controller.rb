@@ -22,7 +22,7 @@ class ListingsController < ApplicationController
         # Returning an array of all categories to display a list in the browse view or filtering
         @categories = Category.all
         @category = params[:category]
-        @title = params[:title]
+        @title = params[:title].downcase
 
         if !@category.empty?
             # If a category is present in the search, it will search for listings with the keywords given within the given category
