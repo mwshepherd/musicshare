@@ -1,6 +1,6 @@
 .listing-card {
+  position: relative;
   display: flex;
-  // border: 1px solid var(--border-color);
   background: #fff;
   border-radius: 5px;
   padding: 20px;
@@ -19,14 +19,19 @@
   }
 
   &__picture-img {
-    max-width: 200px;
+    width: 200px;
     height: 150px;
     object-fit: cover;
     border-radius: 5px;
 
     @include breakpoint(xs) {
-      max-width: 100%;
+      width: 100%;
     }
+  }
+
+  &__details {
+    z-index: 1;
+    width: 80%;
   }
 
   &__title {
@@ -49,16 +54,12 @@
   }
 
   &__price {
-    width: 300px;
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
     display: flex;
     justify-content: center;
     align-items: flex-end;
-
-    @include breakpoint(xs) {
-      margin-top: 10px;
-      width: 100%;
-      justify-content: flex-end;
-    }
 
     .price {
       font-weight: bold;

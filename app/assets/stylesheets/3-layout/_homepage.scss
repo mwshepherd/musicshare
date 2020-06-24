@@ -11,7 +11,7 @@
     display: grid;
     grid-gap: 10px;
     margin-top: 20px;
-    min-height: 300px;
+    min-height: 50vh;
 
     @include breakpoint(md) {
       grid-template-columns: repeat(2, 1fr);
