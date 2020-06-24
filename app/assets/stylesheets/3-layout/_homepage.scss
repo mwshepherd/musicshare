@@ -5,13 +5,21 @@
     background: #fff;
     padding: 20px;
     border-radius: 5px;
-    height: calc(100vh - 220px);
+    // height: 300px;
   }
   &__featured {
-    display: flex;
-    justify-content: space-between;
-    margin: 20px 0;
-    height: calc(100% - 45px);
+    display: grid;
+    grid-gap: 10px;
+    margin-top: 20px;
+    min-height: 50vh;
+
+    @include breakpoint(md) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include breakpoint(lg) {
+      grid-template-columns: repeat(4, 1fr);
+    }
 
     &-category {
       display: flex;
@@ -56,6 +64,8 @@
   &__about {
     margin-top: 20px;
     display: flex;
+    justify-content: center;
+    align-items: center;
     background-color: var(--color-black);
     color: var(--color-white);
     padding: 20px;
@@ -69,12 +79,17 @@
     flex-direction: column;
     justify-content: center;
 
+    @include breakpoint(xs) {
+      margin: 0;
+    }
+
     p {
       margin: 10px 0;
     }
   }
 
   &__browse {
+    display: flex;
     margin-top: 20px;
   }
 
@@ -99,6 +114,10 @@
 
     img {
       width: 100%;
+    }
+
+    @include breakpoint(xs) {
+      display: none;
     }
   }
 }

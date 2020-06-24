@@ -4,7 +4,13 @@
             <div class="nav-main__right">
                 <%= link_to 'music/share', root_path, class: 'nav-main__site-title' %>
             </div>
-            <div class="nav-main__left">
+            <label for="nav-check" class="nav-main__nav-btn">
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+            </label>
+            <input type="checkbox" id="nav-check" />
+            <div class="nav-main__left">                
                 <ul class="nav-main__links">
                     <li class="nav-main__link-item">
                         <%= link_to 'Browse', '/browse', class: 'nav-main__nav-link' %>

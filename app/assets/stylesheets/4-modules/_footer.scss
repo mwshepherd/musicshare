@@ -3,16 +3,30 @@
   background: #fff;
   border-top: 1px solid var(--border-color);
 
+  @include breakpoint(xs) {
+    margin-top: 20px;
+  }
+
   &__content {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 20px 0;
     font-size: 14px;
+
+    @include breakpoint(xs) {
+      flex-direction: column-reverse;
+      align-items: baseline;
+    }
   }
 
   &__legal {
     display: flex;
+
+    @include breakpoint(xs) {
+      flex-direction: column;
+      font-size: 10px;
+    }
   }
 
   &__copyright {
@@ -27,6 +41,10 @@
 
   &__options {
     display: flex;
+
+    @include breakpoint(xs) {
+      margin-bottom: 20px;
+    }
 
     & > * {
       padding: 10px;

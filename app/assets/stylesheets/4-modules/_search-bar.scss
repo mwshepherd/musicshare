@@ -27,6 +27,10 @@
       border: 1px solid var(--border-color);
       border-radius: 5px;
     }
+
+    @include breakpoint(xs) {
+      display: none !important;
+    }
   }
 
   &__search {
@@ -37,6 +41,10 @@
       border: 1px solid var(--border-color);
       border-radius: 5px;
       padding: 10px;
+    }
+
+    @include breakpoint(xs) {
+      margin: 0;
     }
   }
 
@@ -51,6 +59,10 @@
       &:hover {
         background-color: #333;
         color: #fff;
+      }
+
+      @include breakpoint(xs) {
+        display: none;
       }
     }
   }
